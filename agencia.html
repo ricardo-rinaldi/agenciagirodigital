@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giro Digital | Tráfego Pago e Google Negócio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #25D366; 
+            --dark: #0f172a;
+            --white: #ffffff;
+            --overlay: rgba(0, 0, 0, 0.75);
+            --accent: #ffcc00;
+        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: #f8fafc; color: #334155; scroll-behavior: smooth; }
+
+        /* ANIMAÇÃO PULSAR */
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* HERO - BANNER */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(var(--overlay), var(--overlay)), 
+                        url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 { font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; line-height: 1.1; letter-spacing: -1px; }
+        .hero p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0.9; max-width: 850px; margin: 0 auto 30px auto; }
+        .badge-local { background: var(--accent); color: var(--dark); padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; margin-bottom: 15px; display: inline-block; }
+
+        /* WHATSAPP FLUTUANTE */
+        .whats-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 35px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        /* SEÇÕES */
+        .section { padding: 100px 20px; max-width: 1200px; margin: auto; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 15px; font-weight: 900; color: var(--dark); }
+        .section-subtitle { text-align: center; color: #64748b; margin-bottom: 60px; font-size: 1.1rem; }
+
+        /* CARDS BENEFÍCIOS */
+        .grid-benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+        .card { background: white; padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; border: 1px solid #f1f5f9; }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .card i { color: var(--primary); font-size: 3rem; margin-bottom: 20px; }
+        .card h3 { font-size: 1.4rem; margin-bottom: 15px; }
+
+        /* PROVA SOCIAL */
+        .social-proof { background: var(--dark); color: white; padding: 100px 20px; }
+        .grid-testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+        .testimonial { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 15px; border-top: 4px solid var(--primary); position: relative; }
+        .testimonial p { font-style: italic; font-size: 1rem; line-height: 1.6; margin-bottom: 20px; }
+        .testimonial strong { color: var(--primary); display: block; font-size: 1.1rem; }
+        .testimonial span { font-size: 0.85rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* FAQ */
+        .faq-container { max-width: 850px; margin: auto; }
+        .faq-item { background: white; margin-bottom: 12px; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .faq-btn { width: 100%; padding: 22px; text-align: left; background: none; border: none; font-size: 1.1rem; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--dark); }
+        .faq-content { padding: 0 22px; display: none; color: #64748b; padding-bottom: 22px; line-height: 1.6; }
+
+        /* BOTÃO CTA */
+        .btn-cta { 
+            background: var(--primary); color: white; padding: 22px 50px; 
+            border-radius: 50px; text-decoration: none; font-weight: 800; 
+            display: inline-block; font-size: 1.2rem; transition: 0.3s;
+            text-transform: uppercase; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+        .btn-cta:hover { transform: scale(1.05); filter: brightness(1.1); }
+        .microcopy { display: block; margin-top: 12px; font-size: 0.85rem; opacity: 0.8; font-weight: bold; }
+
+        /* FOOTER */
+        .footer { background: #f1f5f9; padding: 80px 20px 30px 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; max-width: 1200px; margin: auto; }
+        .map-container { border-radius: 20px; overflow: hidden; height: 300px; filter: grayscale(0.5); transition: 0.5s; }
+        .map-container:hover { filter: grayscale(0); }
+        
+        @media (max-width: 768px) { .hero h1 { font-size: 2.3rem; } .section-title { font-size: 1.9rem; } }
+    </style>
+</head>
+<body>
+
+    <a href="#" onclick="contatoWhatsapp()" class="whats-float"><i class="fab fa-whatsapp"></i></a>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="badge-local">📍 Especialista em Vila Nova de Gaia e Porto</span>
+            <h1>Gire a chave das suas vendas: Domine o Google e o Instagram.</h1>
+            <p>Criamos anúncios impossíveis de ignorar e otimizamos seu Google Negócio para atrair leads prontos para comprar de você.</p>
+            <a href="#" onclick="contatoWhatsapp()" class="btn-cta">Solicitar Diagnóstico Gratuito</a>
+            <span class="microcopy">⚡ Resposta em menos de 10 minutos</span>
+        </div>
+    </header>
+
+    <section class="section">
+        <h2 class="section-title">Por que a Giro Digital?</h2>
+        <p class="section-subtitle">Não vendemos curtidas. Entregamos clientes no seu WhatsApp.</p>
+        <div class="grid-benefits">
+            <div class="card"><i class="fas fa-map-marked-alt"></i><h3>Google Negócio</h3><p>Seja a primeira opção no mapa quando o cliente buscar pelo seu serviço na região.</p></div>
+            <div class="card"><i class="fab fa-facebook-messenger"></i><h3>Leads Filtrados</h3><p>Anúncios que perseguem o público certo, eliminando curiosos e focando em lucro.</p></div>
+            <div class="card"><i class="fas fa-chart-pie"></i><h3>ROI Transparente</h3><p>Relatórios semanais claros para você saber exatamente quanto cada Euro investido rendeu.</p></div>
+            <div class="card"><i class="fas fa-bolt"></i><h3>Escala Rápida</h3><p>Setup em 7 dias. Resultados visíveis nas primeiras 48 horas após a ativação.</p></div>
+        </div>
+    </section>
+
+    <section class="social-proof">
+        <div class="section">
+            <h2 class="section-title" style="color: white; margin-bottom: 10px;">Quem já transformou o jogo</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Resultados reais de quem confiou na Giro Digital.</p>
+            <div class="grid-testimonials">
+                <div class="testimonial">
+                    <p>"Batemos **recorde de pedidos** no delivery. O Facebook Ads salvou nosso faturamento!"</p>
+                    <strong>Leandro Silveira</strong><span>Parrilla Gourmet</span>
+                </div>
+                <div class="testimonial">
+                    <p>"Vendemos **15 carros a mais** no primeiro mês de gestão. Leads qualificados todo dia."</p>
+                    <strong>Renato Oliveira</strong><span>Portal Automóveis</span>
+                </div>
+                <div class="testimonial">
+                    <p>"**Agenda lotada** com meses de antecedência. O tráfego pago mudou minha vida!"</p>
+                    <strong>Dra. Beatriz Lins</strong><span>Lins Estética</span>
+                </div>
+                <div class="testimonial">
+                    <p>"Fechamos contratos de **alto padrão** via leads do Google. ROI altíssimo!"</p>
+                    <strong>Eng. Cláudio Mendes</strong><span>Mendes Engenharia</span>
+                </div>
+                <div class="testimonial">
+                    <p>"O anúncio no raio de 3km faz o WhatsApp **não parar de tocar** toda noite."</p>
+                    <strong>Renata Vasconcelos</strong><span>Pizzaria Bella Massa</span>
+                </div>
+                <div class="testimonial">
+                    <p>"Vendemos **3 imóveis em 45 dias** com os funis de investidores. Excelente!"</p>
+                    <strong>Fabiana Rocha</strong><span>Rocha Imóveis Luxo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Dúvidas Frequentes</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-btn" onclick="toggleFaq(this)">Quanto preciso investir em anúncios? <i class="fas fa-plus"></i></button>
+                <div class="faq-content">O investimento é definido por você. Analisamos seu mercado para sugerir um valor que traga lucro real e não apenas gastos.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-btn" onclick="toggleFaq(this)">Em quanto tempo terei resultado? <i class="fas fa-plus"></i></button>
+                <div class="faq-content">Campanhas bem estruturadas costumam gerar os primeiros contatos em até 48h. A maturação do lucro ocorre em 30 dias.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-btn" onclick="toggleFaq(this)">Terei contrato de fidelidade? <i class="fas fa-plus"></i></button>
+                <div class="faq-content">Não prendemos ninguém por contrato. Nossa fidelidade é baseada no lucro que colocamos no seu bolso.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-btn" onclick="toggleFaq(this)">Por que investir na Giro Digital agora? <i class="fas fa-plus"></i></button>
+                <div class="faq-content">Enquanto você lê isso, seu concorrente está ganhando os cliques e clientes que deveriam ser seus.</div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="#" onclick="contatoWhatsapp()" class="btn-cta">Consultar Disponibilidade de Vaga</a>
+            <span class="microcopy" style="color: var(--dark)">Vagas limitadas por nicho em Gaia</span>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h4 style="font-size: 2rem; margin-bottom: 20px;">Giro Digital</h4>
+                <p><i class="fas fa-phone"></i> +351 931 893 541</p>
+                <p><i class="fas fa-envelope"></i> contato@girodigital.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Pedroso, Vila Nova de Gaia, Portugal</p>
+                <div class="social-links" style="margin-top: 25px;">
+                    <a href="#" style="font-size: 1.8rem; color: var(--dark); margin-right: 20px;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="font-size: 1.8rem; color: var(--dark);"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12030.76813352796!2d-8.563606!3d41.07684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd247b97371f5431%3A0x500ebb323058860!2sPedroso%2C%20Vila%20Nova%20de%20Gaia%2C%20Portugal!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px; font-size: 0.8rem; opacity: 0.6; border-top: 1px solid #ddd; padding-top: 20px;">
+            © 2026 Giro Digital Performance. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script>
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                icon.className = "fas fa-plus";
+            } else {
+                content.style.display = "block";
+                icon.className = "fas fa-minus";
+            }
+        }
+        function contatoWhatsapp() {
+            const fone = "351931893541"; 
+            const msg = encodeURIComponent("Olá! Vi o site da Giro Digital e quero meu DIAGNÓSTICO GRATUITO de tráfego.");
+            window.open(`https://wa.me/${fone}?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+</html>
