@@ -1,174 +1,299 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isaque | Performance & Domínio em Campo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>Isaque | Atleta Profissional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #ccff00; 
-            --dark: #050505;
-            --gray: #121212;
-            --text-light: #ffffff;
-            --text-muted: #888888;
+            --primary: #ccff00; /* Volt Green */
+            --dark-bg: #050505;
+            --card-bg: #111111;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+            --accent: #1a1a1a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--dark); color: var(--text-light); line-height: 1.6; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-        /* Hero Section */
-        header {
+        /* 1. DOBRA: HERO SECTION */
+        .hero {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), var(--dark-bg)), 
+                        url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2000') center/cover no-repeat;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&q=80&w=1920') center/cover;
             padding: 20px;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-
-        h1 {
+        .hero-content h1 {
             font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(3rem, 12vw, 7rem);
-            text-transform: uppercase;
-            line-height: 0.9;
-            margin-bottom: 15px;
+            font-size: clamp(3.5rem, 15vw, 9rem);
+            line-height: 0.85;
             color: var(--primary);
-            letter-spacing: -2px;
+            text-transform: uppercase;
+            letter-spacing: -4px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
         }
 
-        .subheadline {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            font-weight: 400;
+        .hero-content p {
+            font-size: clamp(1.1rem, 3vw, 1.8rem);
+            font-weight: 600;
             max-width: 800px;
             margin: 0 auto 40px;
-            color: #eee;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
         }
 
-        /* Benefícios (Atributos) */
-        .benefits {
+        /* 2. DOBRA: ESTATÍSTICAS RÁPIDAS (SCOUT) */
+        .scout-bar {
+            background: var(--primary);
+            color: #000;
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .scout-item { text-align: center; padding: 10px 20px; }
+        .scout-item span { display: block; font-size: 0.8rem; opacity: 0.7; }
+        .scout-item strong { font-size: 1.5rem; }
+
+        /* 3. DOBRA: BENEFÍCIOS & ATRIBUTOS */
+        .section-title {
+            text-align: center;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin: 80px 0 40px;
+            text-transform: uppercase;
+        }
+
+        .grid-benefits {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+            gap: 30px;
+            padding: 0 5%;
         }
 
-        .benefit-card {
-            background: var(--gray);
-            padding: 40px;
-            border-radius: 4px;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
+        .card {
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 5px;
+            transition: 0.4s;
+            border: 1px solid #222;
         }
 
-        .benefit-card:hover {
-            border-bottom: 3px solid var(--primary);
-            background: #1a1a1a;
-            transform: translateY(-10px);
+        .card:hover { border-color: var(--primary); transform: translateY(-10px); }
+        .card h3 { color: var(--primary); font-family: 'Archivo Black'; margin-bottom: 20px; }
+
+        /* 4. DOBRA: VÍDEO / HIGHLIGHTS */
+        .video-section {
+            background: var(--accent);
+            padding: 100px 5%;
+            margin-top: 100px;
+            text-align: center;
         }
 
-        .benefit-card h3 { 
-            color: var(--primary); 
-            text-transform: uppercase; 
-            font-family: 'Archivo Black';
-            margin-bottom: 15px;
-            font-size: 1.4rem;
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            aspect-ratio: 16/9;
+            background: #000;
+            border: 5px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Prova Social */
-        .social-proof { background: #000; padding: 80px 20px; border-top: 1px solid #222; }
-        .testimonial { max-width: 700px; margin: 0 auto 50px; text-align: center; }
-        .testimonial p { font-size: 1.3rem; font-style: italic; color: var(--text-muted); margin-bottom: 15px; }
-        .testimonial span { color: var(--primary); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
+        /* 5. DOBRA: PROVA SOCIAL */
+        .testimonials { padding: 100px 5%; background: var(--dark-bg); }
+        .testimonial-box {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            border-left: 4px solid var(--primary);
+            padding-left: 30px;
+        }
 
-        /* CTA */
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--dark);
-            padding: 22px 50px;
-            font-weight: 900;
+        .testimonial-box p { font-size: 1.4rem; font-style: italic; color: var(--text-dim); }
+        .testimonial-box cite { display: block; margin-top: 15px; color: var(--primary); font-weight: bold; }
+
+        /* 6. DOBRA: TIMELINE / CARREIRA */
+        .timeline { padding: 50px 5%; max-width: 800px; margin: 0 auto; }
+        .timeline-item {
+            padding: 20px;
+            border-bottom: 1px solid #222;
+            display: flex;
+            justify-content: space-between;
+        }
+        .year { color: var(--primary); font-weight: 900; }
+
+        /* BOTÃO WHATSAPP FIXO E CTAS */
+        .cta-btn {
+            background: var(--primary);
+            color: #000;
+            padding: 25px 50px;
             text-decoration: none;
-            border-radius: 4px;
-            font-size: 1.3rem;
+            font-weight: 900;
+            display: inline-block;
+            border-radius: 5px;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            transition: 0.3s;
         }
 
-        .cta-button:hover { background-color: #fff; transform: scale(1.05); }
+        .cta-btn:hover { background: #fff; transform: scale(1.05); }
 
-        /* Animação */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-decoration: none;
+            font-size: 30px;
+        }
+
+        /* ANIMAÇÕES */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal { opacity: 0; transform: translateY(50px); transition: 1s all ease; }
+        .active { opacity: 1; transform: translateY(0); }
+
+        footer { text-align: center; padding: 100px 20px; background: #000; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="reveal">
+    <a href="https://wa.me/351934098141" class="whatsapp-float" target="_blank">WP</a>
+
+    <header class="hero">
+        <div class="hero-content">
             <h1>ISAQUE.</h1>
-            <p class="subheadline">O reforço que o seu elenco precisa: Inteligência tática, vigor físico e prontidão para o jogo profissional.</p>
-            <a href="https://wa.me/SEUNUMERO?text=Olá%20Isaque,%20vi%20sua%20landing%20page%20e%20gostaria%20de%20conversar." class="cta-button" target="_blank">Entrar em contato</a>
+            <p>O Próximo Reforço para o seu Elenco</p>
+            <a href="#contato" class="cta-btn">Recrutar Agora</a>
         </div>
     </header>
 
+    <div class="scout-bar">
+        <div class="scout-item"><span>IDADE</span><strong>20 ANOS</strong></div>
+        <div class="scout-item"><span>ALTURA</span><strong>1.84 M</strong></div>
+        <div class="scout-item"><span>PESO</span><strong>78 KG</strong></div>
+        <div class="scout-item"><span>PÉ</span><strong>DESTRO</strong></div>
+        <div class="scout-item"><span>NACIONALIDADE</span><strong>PORTUGUESA</strong></div>
+    </div>
+
     <section class="container">
-        <h2 style="font-family: 'Archivo Black'; text-align: center; font-size: 2.5rem; margin-bottom: 10px;">DOMÍNIO TÉCNICO</h2>
-        <p style="text-align: center; color: var(--text-muted); margin-bottom: 50px;">O Isaque entrega resultados onde o clube mais precisa.</p>
-        
-        <div class="benefits">
-            <div class="benefit-card reveal">
-                <h3>Visão Periférica</h3>
-                <p>Capacidade de antecipar jogadas e distribuir passes precisos que rompem linhas defensivas adversárias.</p>
+        <h2 class="section-title">Dominio Técnico</h2>
+        <div class="grid-benefits">
+            <div class="card reveal">
+                <h3>Visão de Jogo</h3>
+                <p>Capacidade de quebrar linhas defensivas com passes verticais precisos e assistência imediata.</p>
             </div>
-            <div class="benefit-card reveal">
-                <h3>Vigor de Elite</h3>
-                <p>Atleta de alta intensidade (Box-to-Box), com excelente índice de recuperação e preenchimento de espaços.</p>
+            <div class="card reveal">
+                <h3>Intensidade Física</h3>
+                <p>Atleta de alta performance com média de 11.5km por jogo. Transição ofensiva ultra-rápida.</p>
             </div>
-            <div class="benefit-card reveal">
-                <h3>Foco Profissional</h3>
-                <p>Disciplina rígida com cronograma de treinos, nutrição e análise de desempenho individual.</p>
+            <div class="card reveal">
+                <h3>Disciplina Tática</h3>
+                <p>Excelente leitura de posicionamento, cumprindo rigorosamente as instruções do treinador.</p>
             </div>
-        </div>
-    </section>
-
-    <section class="social-proof">
-        <div class="container">
-            <div class="testimonial reveal">
-                <p>"O Isaque demonstra uma maturidade tática rara. É um jogador que entende as fases do jogo e executa com precisão."</p>
-                <span>— Olheiro Independente (Referência Fictícia)</span>
-            </div>
-            <div class="testimonial reveal">
-                <p>"Fisicamente impecável. Mantém a performance em alto nível durante os 90 minutos de jogo."</p>
-                <span>— Preparador Físico (Referência Fictícia)</span>
+            <div class="card reveal">
+                <h3>Domínio de Bola</h3>
+                <p>Técnica refinada em espaços curtos, facilitando a saída de pressão do adversário.</p>
             </div>
         </div>
     </section>
 
-    <footer style="text-align: center; padding-bottom: 100px;">
-        <div class="reveal">
-            <h2 style="font-family: 'Archivo Black'; margin-bottom: 20px;">PRONTO PARA O PRÓXIMO NÍVEL?</h2>
-            <p style="margin-bottom: 40px; color: var(--text-muted);">Solicite agora o scout completo e vídeos de jogos oficiais.</p>
-            <a href="https://wa.me/SEUNUMERO" class="cta-button" target="_blank">Falar com Isaque agora</a>
+    <section class="video-section reveal">
+        <h2 class="section-title" style="margin-top: 0;">Highlights 2025/26</h2>
+        <p style="margin-bottom: 30px; color: var(--text-dim);">Assista aos lances mais recentes e análise de desempenho.</p>
+        <div class="video-container">
+            <p style="color: #444;">[LINK DO VÍDEO DO YOUTUBE AQUI]</p>
         </div>
+    </section>
+
+    <section class="reveal">
+        <h2 class="section-title">Histórico Profissional</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="year">2024 - 2025</span>
+                <span>Clube Desportivo X (Liga 2)</span>
+            </div>
+            <div class="timeline-item">
+                <span class="year">2023 - 2024</span>
+                <span>Academia de Futebol Y (Sub-23)</span>
+            </div>
+            <div class="timeline-item">
+                <span class="year">2021 - 2023</span>
+                <span>Formação de Base Clube Z</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 class="section-title">O que dizem os Analistas</h2>
+        <div class="testimonial-box reveal">
+            <p>"Isaque é um jogador moderno. Ele não apenas joga, ele entende o tempo do jogo. Fisicamente está pronto para qualquer desafio."</p>
+            <cite>— Analista de Scout Independente</cite>
+        </div>
+        <div class="testimonial-box reveal">
+            <p>"Raro encontrar um atleta com tamanha maturidade tática na sua idade. Grande potencial de revenda para o clube."</p>
+            <cite>— Treinador Licenciado UEFA</cite>
+        </div>
+    </section>
+
+    <footer id="contato" class="reveal">
+        <h2 class="section-title">Pronto para fechar contrato?</h2>
+        <p style="margin-bottom: 40px; color: var(--text-dim);">Entre em contacto direto para receber a ficha técnica completa e agendar testes.</p>
+        <a href="https://wa.me/351934098141?text=Olá%20Isaque,%20vi%20sua%20página%20e%20gostaria%20de%20falar%20sobre%20uma%20oportunidade." class="cta-btn">Falar no WhatsApp</a>
+        <p style="margin-top: 50px; font-size: 0.8rem; color: #333;">© 2026 Isaque Atleta - Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
+        window.addEventListener('scroll', function() {
+            var reveals = document.querySelectorAll('.reveal');
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    reveals[i].classList.add("active");
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
                 }
             }
-        }
-        window.addEventListener("scroll", reveal);
-        window.onload = reveal;
+        });
+        
+        // Ativar a primeira dobra imediatamente
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        };
     </script>
+
 </body>
 </html>
