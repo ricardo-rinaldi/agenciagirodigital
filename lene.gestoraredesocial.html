@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Josi | Gestão Estratégica de Redes Sociais Portugal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --whatsapp: #25d366;
+            --dark: #0f0f13;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --stars: #f1c40f;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* HERO SECTION */
+        header {
+            background: linear-gradient(135deg, var(--dark) 0%, #2d3436 100%);
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+        }
+        .badge { border: 1px solid #ccff00; color: #ccff00; padding: 6px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; margin-bottom: 25px; display: inline-block; text-transform: uppercase; }
+        h1 { font-family: 'Montserrat'; font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 25px; font-weight: 900; }
+        .hero-sub { font-size: 1.2rem; opacity: 0.8; max-width: 800px; margin: 0 auto 40px; }
+        
+        /* BOTAO WHATSAPP */
+        .btn-wa {
+            background: var(--whatsapp); color: white; padding: 22px 45px; border-radius: 12px;
+            text-decoration: none; font-weight: 700; display: inline-block; transition: 0.3s;
+            text-transform: uppercase; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+        }
+        .btn-wa:hover { transform: translateY(-5px); filter: brightness(1.1); }
+
+        /* PROVAS SOCIAIS (6 CARDS) */
+        .proof-section { padding: 100px 0; background: var(--white); }
+        .section-title { text-align: center; font-family: 'Montserrat'; font-size: 2.5rem; margin-bottom: 60px; font-weight: 900; text-transform: uppercase; }
+        .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .proof-card { background: var(--light); padding: 40px; border-radius: 20px; border: 1px solid #eee; transition: 0.3s; }
+        .proof-card:hover { border-color: var(--primary); transform: translateY(-10px); }
+        .stars { color: var(--stars); margin-bottom: 15px; font-size: 1.2rem; }
+        .proof-text { font-style: italic; font-size: 1rem; margin-bottom: 20px; color: #333; }
+        .proof-author { font-weight: 700; color: var(--primary); display: block; }
+        .proof-niche { font-size: 0.85rem; color: #888; }
+
+        /* FAQ (10 PERGUNTAS) */
+        .faq { padding: 100px 0; background: #f1f2f6; }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--white); margin-bottom: 15px; padding: 25px; border-radius: 12px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .faq-item:hover { transform: translateX(10px); }
+        .faq-item h4 { color: var(--primary); font-size: 1.1rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+        .faq-item h4::after { content: '+'; font-size: 1.5rem; }
+        .faq-answer { display: none; margin-top: 15px; color: #555; border-top: 1px solid #eee; padding-top: 15px; }
+
+        /* REVEAL ANIMATION */
+        .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s all ease; }
+        .active { opacity: 1; transform: translateY(0); }
+
+        footer { padding: 80px 0; text-align: center; background: var(--dark); color: white; border-top: 5px solid var(--primary); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container reveal">
+            <span class="badge">Apenas 2 vagas para Fevereiro</span>
+            <h1>O Teu Negócio com <br> Presença de Elite.</h1>
+            <p class="hero-sub">Gestão estratégica por Josi: Posicionamento, Design e Faturação. Criamos conteúdo que converte seguidores em clientes reais.</p>
+            <a href="https://wa.me/351935915652?text=Olá%20Josi,%20vi%20a%20tua%20página%20e%20gostaria%20de%20um%20diagnóstico%20do%20meu%20perfil." class="btn-wa">Analisar o meu Perfil agora</a>
+        </div>
+    </header>
+
+    <section class="proof-section">
+        <div class="container">
+            <h2 class="section-title reveal">Resultados Reais</h2>
+            <div class="proof-grid">
+                <div class="proof-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="proof-text">"As minhas vendas aumentaram 40% em dois meses. A Josi sabe exatamente como atrair o público de Portugal."</p>
+                    <span class="proof-author">Clínica Estética S.</span>
+                    <span class="proof-niche">Saúde e Bem-estar</span>
+                </div>
+                <div class="proof-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="proof-text">"Finalmente tenho tempo para focar no meu negócio. O meu conteúdo está em boas mãos."</p>
+                    <span class="proof-author">Dra. Helena M.</span>
+                    <span class="proof-niche">Advocacia</span>
+                </div>
+                <div class="proof-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="proof-text">"O design dos posts mudou completamente a perceção da minha marca. Agora pareço muito mais premium."</p>
+                    <span class="proof-author">Concept Store Lisboa</span>
+                    <span class="proof-niche">E-commerce</span>
+                </div>
+                <div class="proof-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="proof-text">"Excelente planeamento. A consistência trouxe-me leads qualificados todos os dias pelo WhatsApp."</p>
+                    <span class="proof-author">Ricardo G.</span>
+                    <span class="proof-niche">Consultoria Imobiliária</span>
+                </div>
+                <div class="proof-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="proof-text">"A Josi cria estratégias de vendas reais. O meu engajamento e as marcações duplicaram num mês."</p>
+                    <span class="proof-author">Studio Pilates Flow</span>
+                    <span class="proof-niche">Fitness</span>
+                </div>
+                <div class="proof-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="proof-text">"Profissionalismo nota 10. Os relatórios ajudam-me a perceber onde o investimento está a dar retorno."</p>
+                    <span class="proof-author">Pastelaria Gourmet</span>
+                    <span class="proof-niche">Gastronomia</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title reveal">Dúvidas Frequentes</h2>
+            <div class="faq-container">
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>1. Preciso de aparecer nos vídeos?</h4>
+                    <p class="faq-answer">Não é obrigatório. Criamos estratégias focadas no teu produto ou serviço, usando design e narrações persuasivas.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>2. Quanto tempo demora para ver resultados?</h4>
+                    <p class="faq-answer">A mudança estética é imediata. Resultados em vendas costumam surgir com a consistência (média de 30 a 60 dias).</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>3. Tu fazes as fotos e os vídeos?</h4>
+                    <p class="faq-answer">Eu forneço guiões de captura. Tu gravas com o telemóvel e eu trato de toda a edição profissional e design.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>4. Existe contrato de fidelidade?</h4>
+                    <p class="faq-answer">Trabalhamos com renovação mensal. Queremos que fiques pelos resultados, não por uma obrigação contratual.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>5. Serve para o meu nicho de mercado?</h4>
+                    <p class="faq-answer">Atendo diversos nichos. Fazemos uma análise prévia para garantir que a minha estratégia se adapta ao teu negócio.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>6. Como é feito o pagamento?</h4>
+                    <p class="faq-answer">Aceitamos Transferência Bancária ou MB Way, com fatura emitida no ato do pagamento.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>7. Vou poder aprovar os posts antes de saírem?</h4>
+                    <p class="faq-answer">Sim! Todo o conteúdo passa por uma plataforma de aprovação onde podes sugerir ajustes antes de publicarmos.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>8. Tu respondes às mensagens dos meus clientes?</h4>
+                    <p class="faq-answer">O meu foco é a estratégia de conteúdo. O atendimento comercial direto (fechar vendas) continua sob a tua gestão.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>9. Qual é o valor do serviço?</h4>
+                    <p class="faq-answer">Tenho diferentes packs (Standard, Premium e Elite). O valor depende da frequência e complexidade do projeto.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>10. Como começamos hoje?</h4>
+                    <p class="faq-answer">Clicas no botão de WhatsApp abaixo, fazemos um diagnóstico gratuito e apresento-te a melhor solução em 24h.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container reveal">
+            <h2 class="section-title" style="color: white; margin-bottom: 30px;">Pronta para o Próximo Nível?</h2>
+            <a href="https://wa.me/351935915652" class="btn-wa">Falar com a Josi Agora</a>
+            <p style="margin-top: 60px; opacity: 0.5;">© 2026 Josi Strategist | Portugal | +351 935 915 652</p>
+        </div>
+    </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) reveals[i].classList.add("active");
+            }
+        }
+        function toggleFaq(el) {
+            const ans = el.querySelector('.faq-answer');
+            ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
+        }
+        window.addEventListener("scroll", reveal);
+        window.onload = reveal;
+    </script>
+</body>
+</html>
