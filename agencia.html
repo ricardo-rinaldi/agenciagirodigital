@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giro Digital | Performance em Vila Nova de Gaia e Porto</title>
     
-    <link rel="icon" type="image/jpg" href="02_03_2026, 11_11_16.jpg"> 
+    <link rel="icon" type="image/jpg" href="giro_digital_logo.jpg"> 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@800&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -17,147 +17,215 @@
             --white: #ffffff;
             --accent: #ffcc00;
             --gray: #64748b;
+            --stars: #f1c40f;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; scroll-behavior: smooth; line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; overflow-x: hidden; }
 
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
         @keyframes pulse {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* HERO */
-        .hero {
+        /* HERO SECTION */
+        header {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1920&q=80') center/cover;
             color: var(--white);
             padding: 0 20px;
         }
 
-        .hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 900; margin-bottom: 20px; letter-spacing: -2px; color: var(--white); }
-        .hero p { font-size: 1.2rem; margin-bottom: 35px; opacity: 0.9; max-width: 750px; margin-left: auto; margin-right: auto; }
-        .badge-local { background: var(--accent); color: var(--dark); padding: 8px 20px; border-radius: 50px; font-weight: 900; font-size: 0.85rem; margin-bottom: 20px; display: inline-block; text-transform: uppercase; }
+        .badge-local { background: var(--accent); color: var(--dark); padding: 8px 20px; border-radius: 50px; font-weight: 900; font-size: 0.85rem; margin-bottom: 25px; display: inline-block; text-transform: uppercase; }
+        h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 25px; font-weight: 900; letter-spacing: -2px; }
+        .hero-sub { font-size: 1.2rem; opacity: 0.8; max-width: 800px; margin: 0 auto 40px; }
+
+        /* BOTOES */
+        .btn-wa {
+            background: var(--primary); color: white; padding: 22px 45px; border-radius: 12px;
+            text-decoration: none; font-weight: 700; display: inline-block; transition: 0.3s;
+            text-transform: uppercase; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+        }
+        .btn-wa:hover { transform: translateY(-5px); filter: brightness(1.1); }
+
+        /* PROVAS SOCIAIS (6 CARDS) */
+        .proof-section { padding: 100px 0; background: var(--white); }
+        .section-title { text-align: center; font-family: 'Montserrat'; font-size: 2.5rem; margin-bottom: 60px; font-weight: 900; text-transform: uppercase; }
+        .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .proof-card { background: #f8fafc; padding: 40px; border-radius: 20px; border: 1px solid #eee; transition: 0.3s; }
+        .proof-card:hover { border-color: var(--primary); transform: translateY(-10px); }
+        .stars { color: var(--stars); margin-bottom: 15px; font-size: 1.2rem; }
+        .proof-text { font-style: italic; font-size: 1rem; margin-bottom: 20px; color: #333; }
+        .proof-author { font-weight: 700; color: var(--dark); display: block; }
+        .proof-niche { font-size: 0.85rem; color: var(--primary); font-weight: bold; }
+
+        /* FAQ (10 PERGUNTAS) */
+        .faq { padding: 100px 0; background: #f1f2f6; }
+        .faq-container { max-width: 850px; margin: 0 auto; }
+        .faq-item { background: var(--white); margin-bottom: 15px; padding: 25px; border-radius: 12px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .faq-item:hover { border-color: var(--primary); }
+        .faq-item h4 { color: var(--dark); font-size: 1.1rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+        .faq-item h4::after { content: '+'; font-size: 1.5rem; color: var(--primary); }
+        .faq-answer { display: none; margin-top: 15px; color: var(--gray); border-top: 1px solid #eee; padding-top: 15px; }
 
         /* WHATSAPP FLOAT */
-        .whats-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary);
-            width: 65px; height: 65px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-size: 35px; z-index: 1000;
-            text-decoration: none; animation: pulse 2s infinite;
+        .float-wa {
+            position: fixed; bottom: 30px; right: 30px; background: var(--primary);
+            width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; color: white; font-size: 35px; z-index: 1000; text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); animation: pulse 2s infinite;
         }
 
-        /* SEÇÃO FAQ */
-        .section { padding: 100px 20px; max-width: 1100px; margin: auto; }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 15px; font-weight: 900; color: var(--dark); text-transform: uppercase; }
-        .section-subtitle { text-align: center; color: var(--gray); margin-bottom: 60px; }
+        /* REVEAL ANIMATION */
+        .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s all ease; }
+        .active { opacity: 1; transform: translateY(0); }
 
-        .faq-container { max-width: 800px; margin: auto; }
-        .faq-item { background: white; margin-bottom: 15px; border-radius: 12px; border: 1px solid #e2e8f0; transition: 0.3s; }
-        .faq-item:hover { border-color: var(--primary); }
-        .faq-btn { width: 100%; padding: 22px; text-align: left; background: none; border: none; font-size: 1.1rem; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--dark); }
-        .faq-content { padding: 0 22px 22px; display: none; color: var(--gray); font-size: 1rem; border-top: 1px solid #f1f5f9; padding-top: 15px; }
-
-        /* BOTÃO CTA */
-        .btn-cta { 
-            background: var(--primary); color: white; padding: 22px 50px; 
-            border-radius: 50px; text-decoration: none; font-weight: 800; 
-            display: inline-block; font-size: 1.1rem; transition: 0.3s;
-            text-transform: uppercase; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-        }
-        .btn-cta:hover { transform: translateY(-5px); filter: brightness(1.1); }
-        .microcopy { display: block; margin-top: 15px; font-size: 0.85rem; color: var(--gray); font-weight: bold; }
-
-        /* FOOTER */
-        .footer { background: #0f172a; color: white; padding: 80px 0 40px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1100px; margin: auto; padding: 0 20px; }
-        .map-container { border-radius: 15px; overflow: hidden; height: 250px; border: 2px solid #1e293b; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.4rem; }
-            .section { padding: 60px 20px; }
-        }
+        footer { padding: 100px 0 40px; text-align: center; background: var(--dark); color: white; }
     </style>
 </head>
 <body>
 
-    <a href="#" onclick="contatoWhatsapp()" class="whats-float"><i class="fab fa-whatsapp"></i></a>
+    <a href="#" onclick="contatoWhatsapp()" class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-    <header class="hero">
-        <div class="hero-content">
-            <span class="badge-local">📍 Líder em Performance no Porto e Gaia</span>
-            <h1>Ponha o seu negócio no topo do Google e do Instagram.</h1>
-            <p>Transformamos cliques em clientes reais no seu WhatsApp. Especialistas em Tráfego Pago e Google Maps para empresas de Vila Nova de Gaia.</p>
-            <a href="#" onclick="contatoWhatsapp()" class="btn-cta">Quero o meu Plano de Vendas Gratuito</a>
-            <span class="microcopy" style="color: white; opacity: 0.8;">⚡ Analisamos o seu perfil em menos de 10 minutos</span>
+    <header>
+        <div class="container reveal">
+            <span class="badge-local">📍 Especialista em Vila Nova de Gaia e Porto</span>
+            <h1>Gire a chave das suas vendas: Domine o Google e o Instagram.</h1>
+            <p class="hero-sub">Criamos anúncios impossíveis de ignorar e otimizamos o seu Google Negócio para atrair leads prontos para comprar de si. Resultados reais em Portugal.</p>
+            <a href="#" onclick="contatoWhatsapp()" class="btn-wa">Solicitar Diagnóstico Gratuito</a>
         </div>
     </header>
 
-    <section class="section">
-        <h2 class="section-title">Perguntas Frequentes</h2>
-        <p class="section-subtitle">Tudo o que precisa saber para começar a faturar mais hoje.</p>
-        
-        <div class="faq-container">
-            <div class="faq-item">
-                <button class="faq-btn" onclick="toggleFaq(this)">Quanto preciso de investir em anúncios? <i class="fas fa-plus"></i></button>
-                <div class="faq-content">O investimento é definido por si. Sugerimos começar com 5€ a 10€ por dia para sentir retorno real em Gaia.</div>
+    <section class="proof-section">
+        <div class="container">
+            <h2 class="section-title reveal">Resultados de Quem Já Confia</h2>
+            <div class="proof-grid">
+                <div class="proof-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="proof-text">"As minhas vendas aumentaram 40% em dois meses. A Giro Digital sabe exatamente como atrair o público de Portugal."</p>
+                    <span class="proof-author">Clínica Estética S.</span>
+                    <span class="proof-niche">Saúde e Bem-estar</span>
+                </div>
+                <div class="proof-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="proof-text">"Finalmente tenho tempo para focar no meu negócio. O meu faturamento e leads estão em boas mãos."</p>
+                    <span class="proof-author">Dra. Helena M.</span>
+                    <span class="proof-niche">Advocacia</span>
+                </div>
+                <div class="proof-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="proof-text">"O design dos anúncios mudou completamente a perceção da minha marca. Agora pareço muito mais premium no mercado."</p>
+                    <span class="proof-author">Concept Store Porto</span>
+                    <span class="proof-niche">E-commerce</span>
+                </div>
+                <div class="proof-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="proof-text">"Excelente planeamento. A consistência no Google trouxe-me leads qualificados todos os dias pelo WhatsApp."</p>
+                    <span class="proof-author">Ricardo G.</span>
+                    <span class="proof-niche">Imobiliária Gaia</span>
+                </div>
+                <div class="proof-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="proof-text">"Estratégia de vendas real. O meu engajamento e as marcações de serviços duplicaram num único mês."</p>
+                    <span class="proof-author">Studio Pilates Flow</span>
+                    <span class="proof-niche">Fitness</span>
+                </div>
+                <div class="proof-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="proof-text">"Profissionalismo nota 10. Os relatórios ajudam-me a perceber onde o investimento está a dar retorno real."</p>
+                    <span class="proof-author">Pastelaria Gourmet</span>
+                    <span class="proof-niche">Gastronomia</span>
+                </div>
             </div>
-            <div class="faq-item">
-                <button class="faq-btn" onclick="toggleFaq(this)">Tenho contrato de fidelidade? <i class="fas fa-plus"></i></button>
-                <div class="faq-content">Não. Acreditamos nos resultados. Se não estivermos a colocar dinheiro no seu bolso, não faz sentido continuar.</div>
-            </div>
-            </div>
-
-        <div style="text-align: center; margin-top: 60px;">
-            <a href="#" onclick="contatoWhatsapp()" class="btn-cta">Consultar Disponibilidade em Gaia</a>
-            <p class="microcopy">⚠️ Vagas limitadas: Atendemos apenas 1 empresa por nicho na região.</p>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-info">
-                <h4 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 20px;">Giro Digital Performance</h4>
-                <p><i class="fas fa-phone"></i> +351 965 095 937</p>
-                <p><i class="fas fa-envelope"></i> atendimento@girodigital.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Pedroso, Vila Nova de Gaia, Portugal</p>
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title reveal">Dúvidas Frequentes</h2>
+            <div class="faq-container">
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>1. Quanto preciso de investir em anúncios?</h4>
+                    <p class="faq-answer">O investimento é definido por si. Sugerimos começar com 5€ a 10€ por dia para sentir retorno real no mercado local.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>2. Em quanto tempo terei resultados?</h4>
+                    <p class="faq-answer">Campanhas bem estruturadas geram os primeiros contactos em 48h. A maturação do lucro ocorre nos primeiros 30 dias.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>3. Tenho contrato de fidelidade?</h4>
+                    <p class="faq-answer">Não. Acreditamos nos resultados. Se não estivermos a colocar dinheiro no seu bolso, não faz sentido continuar.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>4. Preciso de um site para começar?</h4>
+                    <p class="faq-answer">Não é obrigatório. Podemos direcionar os seus clientes para o Instagram ou diretamente para o seu WhatsApp.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>5. Por que investir na Giro Digital agora?</h4>
+                    <p class="faq-answer">Enquanto lê isto, o seu concorrente direto está a ganhar os clientes que deveriam ser seus.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>6. Vocês fazem as artes dos anúncios?</h4>
+                    <p class="faq-answer">Sim! Tratamos de toda a estratégia visual e dos textos (copywriting) focados em conversão.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>7. O Google Negócio realmente traz clientes?</h4>
+                    <p class="faq-answer">É a ferramenta nº1 para serviços locais. Estar bem posicionado no mapa é garantia de chamadas diárias.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>8. Trabalham com qualquer nicho?</h4>
+                    <p class="faq-answer">Não. Atendemos apenas negócios onde sabemos que o tráfego pago traz lucro real para o cliente.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>9. Terei acesso ao que está a acontecer?</h4>
+                    <p class="faq-answer">Sim, terá relatórios claros: Investimento vs. Quantidade de Leads reais no seu telemóvel.</p>
+                </div>
+                <div class="faq-item reveal" onclick="toggleFaq(this)">
+                    <h4>10. Como começamos o diagnóstico?</h4>
+                    <p class="faq-answer">Basta clicar no botão. Analisamos o seu negócio e dizemos-lhe exatamente o que faríamos para escalar.</p>
+                </div>
             </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12030.713838383838!2d-8.5600000!3d41.0600000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd247b9b00000000%3A0x0000000000000000!2sPedroso%2C%20Vila%20Nova%20de%20Gaia!5e0!3m2!1spt-PT!2spt!4v1646210000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container reveal">
+            <h2 class="section-title" style="color: white; margin-bottom: 30px;">Pronto para o Próximo Nível?</h2>
+            <a href="#" onclick="contatoWhatsapp()" class="btn-wa">Falar com a Giro Digital Agora</a>
+            <p style="margin-top: 60px; opacity: 0.5;">© 2026 Giro Digital | Portugal | +351 965 095 937</p>
         </div>
     </footer>
 
     <script>
-        function toggleFaq(btn) {
-            const content = btn.nextElementSibling;
-            const icon = btn.querySelector('i');
-            const isOpen = content.style.display === "block";
-            document.querySelectorAll('.faq-content').forEach(c => c.style.display = "none");
-            document.querySelectorAll('.faq-btn i').forEach(i => i.className = "fas fa-plus");
-            if (!isOpen) {
-                content.style.display = "block";
-                icon.className = "fas fa-minus";
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) reveals[i].classList.add("active");
             }
         }
-
+        function toggleFaq(el) {
+            const ans = el.querySelector('.faq-answer');
+            ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
+        }
         function contatoWhatsapp() {
             const fone = "351965095937"; 
-            const msg = encodeURIComponent("Olá! Estou em Vila Nova de Gaia/Porto e quero um DIAGNÓSTICO GRATUITO da Giro Digital.");
+            const msg = encodeURIComponent("Olá! Vi o site da Giro Digital e quero o meu DIAGNÓSTICO GRATUITO de tráfego.");
             window.open(`https://wa.me/${fone}?text=${msg}`, '_blank');
         }
+        window.addEventListener("scroll", reveal);
+        window.onload = reveal;
     </script>
 </body>
 </html>
