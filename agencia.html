@@ -84,6 +84,7 @@
         .faq { padding: 100px 0; background: #f1f2f6; }
         .faq-container { max-width: 850px; margin: 0 auto; }
         .faq-item { background: var(--white); margin-bottom: 15px; padding: 25px; border-radius: 12px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .faq-item:hover { border-color: var(--primary); }
         .faq-item h4 { color: var(--dark); font-size: 1.1rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
         .faq-item h4::after { content: '+'; font-size: 1.5rem; color: var(--primary); }
         .faq-answer { display: none; margin-top: 15px; color: var(--gray); border-top: 1px solid #eee; padding-top: 15px; }
@@ -112,7 +113,157 @@
         <div class="container reveal">
             <span class="badge-local">📍 Especialista em Vila Nova de Gaia e Porto</span>
             <h1>Gira a chave do seu crescimento: Anúncios inteligentes e Landing Pages que vendem.</h1>
-            <p class="hero-sub">Pare de queimar dinheiro com publicidade sem retorno. Implementamos funis de venda validados para atrair leads prontos para comprar em Portugal.</p>
+            <p class="hero-sub">Otimizamos o seu investimento em marketing com estratégias profissionais de tráfego pago e posicionamento local. Resultados sólidos para empresas em Portugal.</p>
+            <a href="#" onclick="contatoWhatsapp()" class="btn-wa"><i class="fab fa-whatsapp"></i> Quero o meu Diagnóstico Gratuito</a>
+        </div>
+    </header>
+
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title reveal">O que entregamos para o seu negócio</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card reveal">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Atração Qualificada</h3>
+                    <p>Anúncios segmentados para alcançar apenas quem realmente tem intenção de compra no seu nicho.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Presença no Google Maps</h3>
+                    <p>Otimização para que a sua empresa apareça no topo das buscas locais em Gaia e Porto.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Páginas de Alta Performance</h3>
+                    <p>Landing Pages rápidas e persuasivas, desenhadas para guiar o utilizador até ao seu WhatsApp.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>ROI Transparente</h3>
+                    <p>Relatórios claros onde entende exatamente quanto cada Euro investido trouxe de retorno.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <i class="fas fa-filter"></i>
+                    <h3>Filtro de Curiosos</h3>
+                    <p>Estratégias de qualificação para que receba apenas contactos com real potencial de fecho.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <i class="fas fa-expand-arrows-alt"></i><!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giro Digital | Performance em Vila Nova de Gaia e Porto</title>
+    
+    <link rel="icon" type="image/x-icon" href="giro_digital_logo.ico">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #25D366; 
+            --dark: #0f172a;
+            --white: #ffffff;
+            --accent: #ffcc00;
+            --gray: #64748b;
+            --stars: #f1c40f;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; overflow-x: hidden; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* HERO SECTION */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .badge-local { background: var(--accent); color: var(--dark); padding: 8px 20px; border-radius: 50px; font-weight: 900; font-size: 0.85rem; margin-bottom: 25px; display: inline-block; text-transform: uppercase; }
+        h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 25px; font-weight: 900; letter-spacing: -2px; }
+        .hero-sub { font-size: 1.2rem; opacity: 0.8; max-width: 800px; margin: 0 auto 40px; }
+
+        /* BOTOES */
+        .btn-wa {
+            background: var(--primary); color: white; padding: 22px 45px; border-radius: 12px;
+            text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 10px;
+            transition: 0.3s; text-transform: uppercase; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+        }
+        .btn-wa:hover { transform: translateY(-5px); filter: brightness(1.1); }
+
+        /* BENEFÍCIOS (6 CARDS) */
+        .benefits-section { padding: 100px 0; background: #f8fafc; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .benefit-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
+        .benefit-card i { color: var(--primary); font-size: 2.5rem; margin-bottom: 20px; }
+        .benefit-card h3 { margin-bottom: 15px; font-size: 1.3rem; color: var(--dark); }
+
+        /* COMO FUNCIONA (3 PASSOS) */
+        .how-it-works { padding: 100px 0; background: var(--dark); color: white; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px; }
+        .step { text-align: center; }
+        .step-num { width: 60px; height: 60px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 900; margin: 0 auto 20px; }
+
+        /* PROVAS SOCIAIS (6 CARDS) */
+        .proof-section { padding: 100px 0; background: var(--white); }
+        .section-title { text-align: center; font-family: 'Montserrat'; font-size: 2.5rem; margin-bottom: 60px; font-weight: 900; text-transform: uppercase; color: var(--dark); }
+        .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .proof-card { background: #f8fafc; padding: 40px; border-radius: 20px; border: 1px solid #eee; transition: 0.3s; }
+        .proof-card:hover { border-color: var(--primary); transform: translateY(-10px); }
+        .stars { color: var(--stars); margin-bottom: 15px; font-size: 1.2rem; }
+        .proof-text { font-style: italic; font-size: 1rem; margin-bottom: 20px; color: #333; }
+        .proof-author { font-weight: 700; color: var(--dark); display: block; }
+        .proof-niche { font-size: 0.85rem; color: var(--primary); font-weight: bold; }
+
+        /* FAQ (10 PERGUNTAS) */
+        .faq { padding: 100px 0; background: #f1f2f6; }
+        .faq-container { max-width: 850px; margin: 0 auto; }
+        .faq-item { background: var(--white); margin-bottom: 15px; padding: 25px; border-radius: 12px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .faq-item:hover { border-color: var(--primary); }
+        .faq-item h4 { color: var(--dark); font-size: 1.1rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+        .faq-item h4::after { content: '+'; font-size: 1.5rem; color: var(--primary); }
+        .faq-answer { display: none; margin-top: 15px; color: var(--gray); border-top: 1px solid #eee; padding-top: 15px; }
+
+        /* WHATSAPP FLOAT */
+        .float-wa {
+            position: fixed; bottom: 30px; right: 30px; background: var(--primary);
+            width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; color: white; font-size: 35px; z-index: 1000; text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); animation: pulse 2s infinite;
+        }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s all ease; }
+        .active { opacity: 1; transform: translateY(0); }
+
+        footer { padding: 100px 0 40px; text-align: center; background: #0a0f1d; color: white; }
+    </style>
+</head>
+<body>
+
+    <a href="#" onclick="contatoWhatsapp()" class="float-wa">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header>
+        <div class="container reveal">
+            <span class="badge-local">📍 Especialista em Vila Nova de Gaia e Porto</span>
+            <h1>Gira a chave do seu crescimento: Anúncios inteligentes e Landing Pages que vendem.</h1>
+            <p class="hero-sub">Otimizamos o seu investimento em marketing com estratégias profissionais de tráfego pago e posicionamento local. Resultados sólidos para empresas em Portugal.</p>
             <a href="#" onclick="contatoWhatsapp()" class="btn-wa"><i class="fab fa-whatsapp"></i> Quero o meu Diagnóstico Gratuito</a>
         </div>
     </header>
@@ -148,156 +299,3 @@
                 </div>
                 <div class="benefit-card reveal">
                     <i class="fas fa-expand-arrows-alt"></i>
-                    <h3>Escalabilidade</h3>
-                    <p>Estrutura pronta para aumentar o volume de vendas conforme o crescimento da sua operação.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="how-it-works">
-        <div class="container">
-            <h2 class="section-title reveal" style="color: white;">O Caminho para o Sucesso</h2>
-            <div class="steps-grid">
-                <div class="step reveal">
-                    <div class="step-num">1</div>
-                    <h3>Diagnóstico</h3>
-                    <p>Analisamos o seu mercado e a concorrência para identificar onde estão os seus clientes.</p>
-                </div>
-                <div class="step reveal">
-                    <div class="step-num">2</div>
-                    <h3>Setup Estratégico</h3>
-                    <p>Construímos as suas páginas e ativamos as campanhas de anúncios em até 7 dias.</p>
-                </div>
-                <div class="step reveal">
-                    <div class="step-num">3</div>
-                    <h3>Otimização Contínua</h3>
-                    <p>Monitorizamos os dados diariamente para baixar o custo por lead e aumentar o seu lucro.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="proof-section">
-        <div class="container">
-            <h2 class="section-title reveal">Resultados de Quem Já Confia</h2>
-            <div class="proof-grid">
-                <div class="proof-card reveal">
-                    <div class="stars">★★★★★</div>
-                    <p class="proof-text">"As minhas vendas aumentaram 40% em dois meses. A Giro Digital sabe exatamente como atrair o público de Portugal."</p>
-                    <span class="proof-author">Clínica Estética S.</span>
-                    <span class="proof-niche">Saúde e Bem-estar</span>
-                </div>
-                <div class="proof-card reveal">
-                    <div class="stars">★★★★★</div>
-                    <p class="proof-text">"Finalmente tenho tempo para focar no meu negócio. O meu faturamento e leads estão em boas mãos."</p>
-                    <span class="proof-author">Dra. Helena M.</span>
-                    <span class="proof-niche">Advocacia</span>
-                </div>
-                <div class="proof-card reveal">
-                    <div class="stars">★★★★★</div>
-                    <p class="proof-text">"O design dos anúncios mudou completamente a perceção da minha marca. Agora pareço muito mais premium no mercado."</p>
-                    <span class="proof-author">Concept Store Porto</span>
-                    <span class="proof-niche">E-commerce</span>
-                </div>
-                <div class="proof-card reveal">
-                    <div class="stars">★★★★★</div>
-                    <p class="proof-text">"Excelente planeamento. A consistência no Google trouxe-me leads qualificados todos os dias pelo WhatsApp."</p>
-                    <span class="proof-author">Ricardo G.</span>
-                    <span class="proof-niche">Imobiliária Gaia</span>
-                </div>
-                <div class="proof-card reveal">
-                    <div class="stars">★★★★★</div>
-                    <p class="proof-text">"Estratégia de vendas real. O meu engajamento e as marcações de serviços duplicaram num único mês."</p>
-                    <span class="proof-author">Studio Pilates Flow</span>
-                    <span class="proof-niche">Fitness</span>
-                </div>
-                <div class="proof-card reveal">
-                    <div class="stars">★★★★★</div>
-                    <p class="proof-text">"Profissionalismo nota 10. Os relatórios ajudam-me a perceber onde o investimento está a dar retorno real."</p>
-                    <span class="proof-author">Pastelaria Gourmet</span>
-                    <span class="proof-niche">Gastronomia</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="faq">
-        <div class="container">
-            <h2 class="section-title reveal">Dúvidas Frequentes</h2>
-            <div class="faq-container">
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <h4>1. Quanto preciso de investir em anúncios?</h4>
-                    <p class="faq-answer">O investimento é definido por si. Sugerimos começar com 5€ a 10€ por dia para sentir retorno real no mercado local.</p>
-                </div>
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <h4>2. Em quanto tempo terei resultados?</h4>
-                    <p class="faq-answer">Campanhas bem estruturadas geram os primeiros contactos em 48h. A maturação do lucro ocorre nos primeiros 30 dias.</p>
-                </div>
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <h4>3. Tenho contrato de fidelidade?</h4>
-                    <p class="faq-answer">Não. Acreditamos nos resultados. Se não estivermos a colocar dinheiro no seu bolso, não faz sentido continuar.</p>
-                </div>
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <h4>4. Preciso de um site para começar?</h4>
-                    <p class="faq-answer">Não é obrigatório. Podemos direcionar os seus clientes para o Instagram ou diretamente para o seu WhatsApp.</p>
-                </div>
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <h4>5. Por que investir na Giro Digital agora?</h4>
-                    <p class="faq-answer">Enquanto lê isto, o seu concorrente direto está a ganhar os clientes que deveriam ser seus.</p>
-                </div>
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <h4>6. Vocês fazem as artes dos anúncios?</h4>
-                    <p class="faq-answer">Sim! Tratamos de toda a estratégia visual e dos textos (copywriting) focados em conversão.</p>
-                </div>
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <h4>7. O Google Negócio realmente traz clientes?</h4>
-                    <p class="faq-answer">É a ferramenta nº1 para serviços locais. Estar bem posicionado no mapa é garantia de chamadas diárias.</p>
-                </div>
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <h4>8. Trabalham com qualquer nicho?</h4>
-                    <p class="faq-answer">Não. Atendemos apenas negócios onde sabemos que o tráfego pago traz lucro real para o cliente.</p>
-                </div>
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <h4>9. Terei acesso ao que está a acontecer?</h4>
-                    <p class="faq-answer">Sim, terá relatórios claros: Investimento vs. Quantidade de Leads reais no seu telemóvel.</p>
-                </div>
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <h4>10. Como começamos o diagnóstico?</h4>
-                    <p class="faq-answer">Basta clicar no botão. Analisamos o seu negócio e dizemos-lhe exatamente o que faríamos para escalar.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container reveal">
-            <h2 class="section-title" style="color: white; margin-bottom: 30px;">Pronto para Dominar o Mercado?</h2>
-            <a href="#" onclick="contatoWhatsapp()" class="btn-wa">Garantir a Minha Vaga no Google</a>
-            <p style="margin-top: 60px; opacity: 0.5;">© 2026 Giro Digital | Pedroso, Vila Nova de Gaia | +351 965 095 937</p>
-        </div>
-    </footer>
-
-    <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) reveals[i].classList.add("active");
-            }
-        }
-        function toggleFaq(el) {
-            const ans = el.querySelector('.faq-answer');
-            ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
-        }
-        function contatoWhatsapp() {
-            const fone = "351965095937"; 
-            const msg = encodeURIComponent("Olá! Vi o site da Giro Digital e quero solicitar o meu diagnóstico gratuito de tráfego pago para o meu negócio.");
-            window.open(`https://wa.me/${fone}?text=${msg}`, '_blank');
-        }
-        window.addEventListener("scroll", reveal);
-        window.onload = reveal;
-    </script>
-</body>
-</html>
