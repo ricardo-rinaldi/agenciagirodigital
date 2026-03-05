@@ -51,14 +51,21 @@
         /* BOTOES */
         .btn-wa {
             background: var(--primary); color: white; padding: 22px 45px; border-radius: 12px;
-            text-decoration: none; font-weight: 700; display: inline-block; transition: 0.3s;
-            text-transform: uppercase; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+            text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 10px;
+            transition: 0.3s; text-transform: uppercase; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
         }
         .btn-wa:hover { transform: translateY(-5px); filter: brightness(1.1); }
 
+        /* BENEFÍCIOS (6 CARDS) */
+        .benefits-section { padding: 100px 0; background: #f8fafc; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .benefit-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
+        .benefit-card i { color: var(--primary); font-size: 2.5rem; margin-bottom: 20px; }
+        .benefit-card h3 { margin-bottom: 15px; font-size: 1.3rem; color: var(--dark); }
+
         /* PROVAS SOCIAIS (6 CARDS) */
         .proof-section { padding: 100px 0; background: var(--white); }
-        .section-title { text-align: center; font-family: 'Montserrat'; font-size: 2.5rem; margin-bottom: 60px; font-weight: 900; text-transform: uppercase; }
+        .section-title { text-align: center; font-family: 'Montserrat'; font-size: 2.5rem; margin-bottom: 60px; font-weight: 900; text-transform: uppercase; color: var(--dark); }
         .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .proof-card { background: #f8fafc; padding: 40px; border-radius: 20px; border: 1px solid #eee; transition: 0.3s; }
         .proof-card:hover { border-color: var(--primary); transform: translateY(-10px); }
@@ -67,11 +74,16 @@
         .proof-author { font-weight: 700; color: var(--dark); display: block; }
         .proof-niche { font-size: 0.85rem; color: var(--primary); font-weight: bold; }
 
+        /* COMO FUNCIONA (3 PASSOS) */
+        .how-it-works { padding: 100px 0; background: var(--dark); color: white; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px; }
+        .step { text-align: center; }
+        .step-num { width: 60px; height: 60px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 900; margin: 0 auto 20px; }
+
         /* FAQ (10 PERGUNTAS) */
         .faq { padding: 100px 0; background: #f1f2f6; }
         .faq-container { max-width: 850px; margin: 0 auto; }
         .faq-item { background: var(--white); margin-bottom: 15px; padding: 25px; border-radius: 12px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .faq-item:hover { border-color: var(--primary); }
         .faq-item h4 { color: var(--dark); font-size: 1.1rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
         .faq-item h4::after { content: '+'; font-size: 1.5rem; color: var(--primary); }
         .faq-answer { display: none; margin-top: 15px; color: var(--gray); border-top: 1px solid #eee; padding-top: 15px; }
@@ -84,27 +96,87 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.3); animation: pulse 2s infinite;
         }
 
-        /* REVEAL ANIMATION */
         .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s all ease; }
         .active { opacity: 1; transform: translateY(0); }
 
-        footer { padding: 100px 0 40px; text-align: center; background: var(--dark); color: white; }
+        footer { padding: 100px 0 40px; text-align: center; background: #0a0f1d; color: white; }
     </style>
 </head>
 <body>
 
-    <a href="#" onclick="contatoWhatsapp()" class="float-wa" target="_blank">
+    <a href="#" onclick="contatoWhatsapp()" class="float-wa">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <header>
         <div class="container reveal">
             <span class="badge-local">📍 Especialista em Vila Nova de Gaia e Porto</span>
-            <h1>Gire a chave das suas vendas: Domine o Google e o Instagram.</h1>
-            <p class="hero-sub">Criamos anúncios impossíveis de ignorar e otimizamos o seu Google Negócio para atrair leads prontos para comprar de si. Resultados reais em Portugal.</p>
-            <a href="#" onclick="contatoWhatsapp()" class="btn-wa">Solicitar Diagnóstico Gratuito</a>
+            <h1>Gira a chave do seu crescimento: Anúncios inteligentes e Landing Pages que vendem.</h1>
+            <p class="hero-sub">Pare de queimar dinheiro com publicidade sem retorno. Implementamos funis de venda validados para atrair leads prontos para comprar em Portugal.</p>
+            <a href="#" onclick="contatoWhatsapp()" class="btn-wa"><i class="fab fa-whatsapp"></i> Quero o meu Diagnóstico Gratuito</a>
         </div>
     </header>
+
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title reveal">O que entregamos para o seu negócio</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card reveal">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Atração Qualificada</h3>
+                    <p>Anúncios segmentados para alcançar apenas quem realmente tem intenção de compra no seu nicho.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Presença no Google Maps</h3>
+                    <p>Otimização para que a sua empresa apareça no topo das buscas locais em Gaia e Porto.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Páginas de Alta Performance</h3>
+                    <p>Landing Pages rápidas e persuasivas, desenhadas para guiar o utilizador até ao seu WhatsApp.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>ROI Transparente</h3>
+                    <p>Relatórios claros onde entende exatamente quanto cada Euro investido trouxe de retorno.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <i class="fas fa-filter"></i>
+                    <h3>Filtro de Curiosos</h3>
+                    <p>Estratégias de qualificação para que receba apenas contactos com real potencial de fecho.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                    <h3>Escalabilidade</h3>
+                    <p>Estrutura pronta para aumentar o volume de vendas conforme o crescimento da sua operação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title reveal" style="color: white;">O Caminho para o Sucesso</h2>
+            <div class="steps-grid">
+                <div class="step reveal">
+                    <div class="step-num">1</div>
+                    <h3>Diagnóstico</h3>
+                    <p>Analisamos o seu mercado e a concorrência para identificar onde estão os seus clientes.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-num">2</div>
+                    <h3>Setup Estratégico</h3>
+                    <p>Construímos as suas páginas e ativamos as campanhas de anúncios em até 7 dias.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-num">3</div>
+                    <h3>Otimização Contínua</h3>
+                    <p>Monitorizamos os dados diariamente para baixar o custo por lead e aumentar o seu lucro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="proof-section">
         <div class="container">
@@ -200,9 +272,9 @@
 
     <footer>
         <div class="container reveal">
-            <h2 class="section-title" style="color: white; margin-bottom: 30px;">Pronto para o Próximo Nível?</h2>
-            <a href="#" onclick="contatoWhatsapp()" class="btn-wa">Falar com a Giro Digital Agora</a>
-            <p style="margin-top: 60px; opacity: 0.5;">© 2026 Giro Digital | Portugal | +351 965 095 937</p>
+            <h2 class="section-title" style="color: white; margin-bottom: 30px;">Pronto para Dominar o Mercado?</h2>
+            <a href="#" onclick="contatoWhatsapp()" class="btn-wa">Garantir a Minha Vaga no Google</a>
+            <p style="margin-top: 60px; opacity: 0.5;">© 2026 Giro Digital | Pedroso, Vila Nova de Gaia | +351 965 095 937</p>
         </div>
     </footer>
 
@@ -221,7 +293,7 @@
         }
         function contatoWhatsapp() {
             const fone = "351965095937"; 
-            const msg = encodeURIComponent("Olá! Vi o site da Giro Digital e quero o meu DIAGNÓSTICO GRATUITO de tráfego.");
+            const msg = encodeURIComponent("Olá! Vi o site da Giro Digital e quero solicitar o meu diagnóstico gratuito de tráfego pago para o meu negócio.");
             window.open(`https://wa.me/${fone}?text=${msg}`, '_blank');
         }
         window.addEventListener("scroll", reveal);
