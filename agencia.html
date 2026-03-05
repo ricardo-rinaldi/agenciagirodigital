@@ -105,7 +105,7 @@
 </head>
 <body>
 
-    <a href="#" onclick="contatoWhatsapp()" class="float-wa">
+    <a href="javascript:void(0)" onclick="contatoWhatsapp()" class="float-wa">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -113,8 +113,8 @@
         <div class="container reveal">
             <span class="badge-local">📍 Especialista em Vila Nova de Gaia e Porto</span>
             <h1>Gira a chave do seu crescimento: Anúncios inteligentes e Landing Pages que vendem.</h1>
-            <p class="hero-sub">Otimizamos o seu investimento em marketing com estratégias profissionais de tráfego pago e posicionamento local. Resultados sólidos para empresas em Portugal.</p>
-            <a href="#" onclick="contatoWhatsapp()" class="btn-wa"><i class="fab fa-whatsapp"></i> Quero o meu Diagnóstico Gratuito</a>
+            <p class="hero-sub">Pare de queimar dinheiro com publicidade sem retorno. Implementamos funis de venda validados para atrair leads prontos para comprar em Portugal.</p>
+            <a href="javascript:void(0)" onclick="contatoWhatsapp()" class="btn-wa"><i class="fab fa-whatsapp"></i> Quero o meu Diagnóstico Gratuito</a>
         </div>
     </header>
 
@@ -237,7 +237,7 @@
                 </div>
                 <div class="faq-item reveal" onclick="toggleFaq(this)">
                     <h4>3. Como funciona o contrato de prestação de serviços?</h4>
-                    <p class="faq-answer">Trabalhamos com contratos formais que garantem segurança para ambas as partes, definindo prazos, entregáveis e metas claras para a sua estratégia.</p>
+                    <p class="faq-answer">Trabalhamos com contratos formais que garantem segurança para ambas as partes, definindo prazos, entregáveis e metas claras.</p>
                 </div>
                 <div class="faq-item reveal" onclick="toggleFaq(this)">
                     <h4>4. Preciso de um site para começar?</h4>
@@ -274,7 +274,7 @@
     <footer>
         <div class="container reveal">
             <h2 class="section-title" style="color: white; margin-bottom: 30px;">Pronto para Dominar o Mercado?</h2>
-            <a href="#" onclick="contatoWhatsapp()" class="btn-wa">Garantir a Minha Vaga no Google</a>
+            <a href="javascript:void(0)" onclick="contatoWhatsapp()" class="btn-wa">Garantir a Minha Vaga no Google</a>
             <p style="margin-top: 60px; opacity: 0.5;">© 2026 Giro Digital | Pedroso, Vila Nova de Gaia | +351 965 095 937</p>
         </div>
     </footer>
@@ -285,17 +285,19 @@
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) reveals[i].classList.add("active");
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
             }
         }
         function toggleFaq(el) {
             const ans = el.querySelector('.faq-answer');
-            ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
+            ans.style.display = (ans.style.display === 'block') ? 'none' : 'block';
         }
         function contatoWhatsapp() {
             const fone = "351965095937"; 
             const msg = encodeURIComponent("Olá! Vi o site da Giro Digital e quero solicitar o meu diagnóstico gratuito de tráfego pago para o meu negócio.");
-            window.open(`https://wa.me/${fone}?text=${msg}`, '_blank');
+            window.open("https://wa.me/" + fone + "?text=" + msg, '_blank');
         }
         window.addEventListener("scroll", reveal);
         window.onload = reveal;
